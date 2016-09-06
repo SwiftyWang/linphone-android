@@ -92,7 +92,9 @@
 						android:layout_height="wrap_content"
 						android:contentDescription="@string/content_description_history"
 						android:padding="15dp"
-						android:layout_centerInParent="true"/>
+						android:layout_centerHorizontal="true"
+						android:layout_alignParentTop="true"
+						android:layout_alignParentBottom="true" />
 
 					<View
 						android:id="@+id/history_select"
@@ -127,7 +129,9 @@
 						android:layout_width="match_parent"
 						android:layout_height="wrap_content"
 						android:padding="15dp"
-						android:layout_centerInParent="true"/>
+						android:layout_centerHorizontal="true"
+						android:layout_alignParentTop="true"
+						android:layout_alignParentBottom="true" />
 
 					<View
 						android:id="@+id/contacts_select"
@@ -151,7 +155,9 @@
 						android:layout_width="match_parent"
 						android:layout_height="wrap_content"
 						android:padding="15dp"
-						android:layout_centerInParent="true"/>
+						android:layout_centerHorizontal="true"
+						android:layout_alignParentTop="true"
+						android:layout_alignParentBottom="true" />
 
 					<View
 						android:id="@+id/dialer_select"
@@ -175,7 +181,9 @@
 						android:layout_width="match_parent"
 						android:layout_height="wrap_content"
 						android:padding="15dp"
-						android:layout_centerInParent="true" />
+						android:layout_centerHorizontal="true"
+						android:layout_alignParentTop="true"
+						android:layout_alignParentBottom="true" />
 
 					<View
 						android:id="@+id/chat_select"
