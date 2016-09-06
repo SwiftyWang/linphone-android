@@ -334,8 +334,8 @@
 						android:contentDescription="@string/content_description_audio_route"/>
 
 					<ImageView
-						android:id="@+id/options"
-						android:src="@drawable/options_default"
+						android:id="@+id/dmtf"
+						android:src="@drawable/key_default"
 						android:background="@drawable/button_background"
 						android:padding="15dp"
 						android:layout_width="match_parent"

@@ -256,8 +256,8 @@
 						android:layout_weight="1" />
 
 					<ImageView
-						android:id="@+id/options"
-						android:src="@drawable/options_default"
+						android:id="@+id/dmtf"
+						android:src="@drawable/key_default"
 						android:background="@drawable/button_background"
 						android:contentDescription="@string/content_description_call_options"
 						android:padding="15dp"

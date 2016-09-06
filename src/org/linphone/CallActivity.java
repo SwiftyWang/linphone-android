@@ -343,7 +343,7 @@ public class CallActivity extends Activity implements OnClickListener, SensorEve
 		speaker = (ImageView) findViewById(R.id.speaker);
 		speaker.setOnClickListener(this);
 
-		options = (ImageView) findViewById(R.id.options);
+		options = (ImageView) findViewById(R.id.dmtf);
 		options.setOnClickListener(this);
 		options.setEnabled(false);
 
@@ -669,8 +669,8 @@ public class CallActivity extends Activity implements OnClickListener, SensorEve
 		else if (id == R.id.transfer) {
 			goBackToDialerAndDisplayTransferButton();
 		}
-		else if (id == R.id.options) {
-			hideOrDisplayCallOptions();
+		else if (id == R.id.dmtf) {
+			// DMTF
 		}
 		else if (id == R.id.audio_route) {
 			hideOrDisplayAudioRoutes();

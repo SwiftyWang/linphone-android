@@ -20,6 +20,15 @@
 	    android:persistent="false"/>
 
 	<PreferenceCategory
+		android:title="@string/pref_dtmf"
+		android:key="@string/pref_dtmf_key"/>
+
+	<EditTextPreference
+		android:inputType="phone"
+		android:title="@string/pref_dtmf_sequence_title"
+		android:key="@string/pref_dtmf_sequence_key"/>
+
+	<PreferenceCategory
 	    android:title="@string/pref_preferences_title">
 
 	    <PreferenceScreen

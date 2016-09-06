@@ -50,13 +50,7 @@
 		android:layout_below="@id/address_bar"
 		android:layout_centerInParent="true"/>
 
-	<ImageView
-		android:src="@drawable/dialer_background"
-		android:layout_centerHorizontal="true"
-		android:layout_width="100dp"
-		android:layout_height="wrap_content"/>
-    
-    <LinearLayout
+	<LinearLayout
         android:id="@+id/controls"
         android:layout_alignParentBottom="true"
         android:layout_width="match_parent"
@@ -92,5 +86,13 @@
             android:layout_weight="0.5"/>
 
 	</LinearLayout>
+
+	<ImageView
+android:src="@drawable/linphone_logo"
+android:layout_width="100dp"
+android:layout_height="wrap_content"
+		android:layout_centerHorizontal="true"
+		android:layout_alignParentBottom="true"
+		android:layout_alignParentTop="true" />
 
 </RelativeLayout>

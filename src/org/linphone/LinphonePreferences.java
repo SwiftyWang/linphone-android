@@ -1404,4 +1404,12 @@ public class LinphonePreferences {
 	public void enableAutoAnswer(boolean enable) {
 		getConfig().setBool("app", "auto_answer", enable);
 	}
+
+	public void setDTMFSequence(String sequence) {
+		getConfig().setString("misc", "dtmf_sequence", sequence);
+	}
+
+	public String getDTMFSequence() {
+		return getConfig().getString("misc", "dtmf_sequence", null);
+	}
 }

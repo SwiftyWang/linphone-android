@@ -151,6 +151,17 @@ public class SettingsFragment extends PreferencesListFragment {
 	        	return true;
 			}
 		});
+		findPreference(getString(R.string.pref_dtmf_sequence_key)).setOnPreferenceChangeListener(new OnPreferenceChangeListener() {
+			@Override
+			public boolean onPreferenceChange(Preference preference, Object newValue) {
+				String value = (String) newValue;
+				mPrefs.setDTMFSequence(value);
+				preference.setSummary(value);
+				return true;
+			}
+		});
+		setPreferenceDefaultValueAndSummary(R.string.pref_dtmf_sequence_key, mPrefs.getDTMFSequence());
+
 	}
 
 	// Sets listener for each preference to update the matching value in linphonecore
