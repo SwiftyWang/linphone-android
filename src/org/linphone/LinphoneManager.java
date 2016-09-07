@@ -36,6 +36,7 @@ import java.util.TimerTask;
 
 import org.linphone.core.CallDirection;
 import org.linphone.core.LinphoneAddress;
+import org.linphone.core.LinphoneAuthInfo;
 import org.linphone.core.LinphoneBuffer;
 import org.linphone.core.LinphoneCall;
 import org.linphone.core.LinphoneCall.State;
@@ -928,6 +929,12 @@ public class LinphoneManager implements LinphoneCoreListener, LinphoneChatMessag
 	public void displayWarning(LinphoneCore lc, String message) {}
 
 	public void authInfoRequested(LinphoneCore lc, String realm, String username, String domain) {}
+
+	@Override
+	public void authenticationRequested(LinphoneCore lc, LinphoneAuthInfo authInfo, LinphoneCore.AuthMethod method) {
+		
+	}
+
 	public void byeReceived(LinphoneCore lc, String from) {}
 	public void displayMessage(LinphoneCore lc, String message) {}
 	public void show(LinphoneCore lc) {}

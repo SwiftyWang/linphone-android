@@ -201,6 +201,11 @@ public class TutorialCardDavSync extends Activity implements OnClickListener, Li
 	}
 
 	@Override
+	public void authenticationRequested(LinphoneCore lc, LinphoneAuthInfo authInfo, LinphoneCore.AuthMethod method) {
+
+	}
+
+	@Override
 	public void callStatsUpdated(LinphoneCore lc, LinphoneCall call,
 			LinphoneCallStats stats) {
 		// TODO Auto-generated method stub
