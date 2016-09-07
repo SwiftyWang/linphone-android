@@ -2,19 +2,19 @@
 <resources>
 
 	<!-- Custom -->
-	<string name="app_name">Asiphone</string>
-	<string name="service_name">Asiphone Service</string>
-	<string name="addressbook_label">Asiphone</string>
-	<string name="notification_title">Asiphone</string>
+	<string name="app_name">Asip Phone</string>
+	<string name="service_name">Asip Phone Service</string>
+	<string name="addressbook_label">Asip Phone</string>
+	<string name="notification_title">Asip Phone</string>
 	<string name="wait_dialog_text">Starting up</string>
 	<string name="notification_registered">%s registered</string>
 	<string name="notification_register_failure">%s failed to register</string>
 	<string name="tunnel_host"></string>
-	<string name="about_version">Asiphone Android %s</string>
+	<string name="about_version">Asip Phone Android %s</string>
 	<string name="about_liblinphone_version">Linphone Core %s</string>
 	<string name="about_text">GNU General Public License V2\n © 2010-2016 Belledonne Communications</string>
 	<string name="about_link">www.amphitech.fr</string>
-	<string name="sync_account_name">Asiphone contacts</string>
+	<string name="sync_account_name">Asip Phone contacts</string>
 	<string name="history_date_format">EEE, d MMM</string>
 	<string name="history_detail_date_format">yyyy/MM/dd - HH:mm - </string>
 	<string name="messages_date_format">dd/MM, HH:mm</string>
@@ -175,6 +175,7 @@
 	<string name="skipable_error_service_not_ready">Warning: service is not ready</string>
 	<string name="error">Error</string>
 	<string name="warning_wrong_destination_address">Cannot build destination address from %s</string>
+	<string name="dtmf_sequence_not_set_failure">No gate code set in preferences</string>
 	<string name="error_unknown">Unknown error</string>
 	<string name="error_call_declined">Call declined</string>
 	<string name="error_user_not_found">User not found</string>

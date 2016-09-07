@@ -563,6 +563,18 @@ public class CallActivity extends Activity implements OnClickListener, SensorEve
 		}
 	}
 
+	private void executeGateDTMF() {
+		String DTMFseq = LinphonePreferences.instance().getDTMFSequence();
+		if (DTMFseq != null && DTMFseq.length() > 0){
+			LinphoneCore lc = LinphoneManager.getLc();
+			lc.sendDtmfs(DTMFseq);
+		} else {
+			Toast.makeText(this.getApplicationContext()
+					,String.format(getResources().getString(R.string.dtmf_sequence_not_set_failure))
+					,Toast.LENGTH_LONG).show();
+		}
+	}
+
 	private void enableAndRefreshInCallActions() {
 		int confsize = 0;
 
@@ -670,7 +682,7 @@ public class CallActivity extends Activity implements OnClickListener, SensorEve
 			goBackToDialerAndDisplayTransferButton();
 		}
 		else if (id == R.id.dmtf) {
-			// DMTF
+			executeGateDTMF();
 		}
 		else if (id == R.id.audio_route) {
 			hideOrDisplayAudioRoutes();

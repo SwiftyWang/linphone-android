@@ -5,10 +5,15 @@
     android:layout_height="match_parent">
 
 	<ImageView
-		android:src="@drawable/dialer_background"
-		android:layout_width="wrap_content"
+		android:src="@drawable/land_background"
+		android:layout_width="match_parent"
 		android:layout_height="300dp"
-		android:layout_centerVertical="true"/>
+		android:layout_toStartOf="@+id/dialer"
+		android:layout_alignParentBottom="true"
+		android:layout_alignParentTop="true"
+		android:layout_alignParentRight="true"
+		android:layout_alignParentEnd="true"
+		android:scaleType="fitXY" />
 
 	<RelativeLayout
 		android:id="@+id/dialer"
