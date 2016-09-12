@@ -377,14 +377,14 @@ private static AssistantActivity instance;
 	}
 
 	private void launchDownloadCodec() {
-		OpenH264DownloadHelper downloadHelper = LinphoneCoreFactory.instance().createOpenH264DownloadHelper();
+		/*OpenH264DownloadHelper downloadHelper = LinphoneCoreFactory.instance().createOpenH264DownloadHelper();
 		if (Version.getCpuAbis().contains("armeabi-v7a") && !Version.getCpuAbis().contains("x86") && !downloadHelper.isCodecFound()) {
 			CodecDownloaderFragment codecFragment = new CodecDownloaderFragment();
 			changeFragment(codecFragment);
 			currentFragment = AssistantFragmentsEnum.DOWNLOAD_CODEC;
 			back.setVisibility(View.VISIBLE);
 			cancel.setEnabled(false);
-		} else
+		} else*/
 			goToLinphoneActivity();
 	}
 

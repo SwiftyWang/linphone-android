@@ -716,10 +716,10 @@ public class SettingsFragment extends PreferencesListFragment {
 					}
 				}
 			}
-			if (pt.getMime().equals("H264") && mCodecDownloader.isCodecFound()) {
+			/*if (pt.getMime().equals("H264") && mCodecDownloader.isCodecFound()) {
 				codec.setSummary(mCodecDownloader.getLicenseMessage());
 				codec.setTitle("OpenH264");
-			}
+			}*/
 			codec.setChecked(lc.isPayloadTypeEnabled(pt));
 
 			codec.setOnPreferenceChangeListener(new OnPreferenceChangeListener() {
@@ -727,7 +727,7 @@ public class SettingsFragment extends PreferencesListFragment {
 				public boolean onPreferenceChange(Preference preference, Object newValue) {
 					boolean enable = (Boolean) newValue;
 					try {
-						if (enable && Version.getCpuAbis().contains("armeabi-v7a") && !Version.getCpuAbis().contains("x86") 
+						/*if (enable && Version.getCpuAbis().contains("armeabi-v7a") && !Version.getCpuAbis().contains("x86")
 								&& pt.getMime().equals("H264") && !mCodecDownloader.isCodecFound()) {
 							mCodecDownloader.setOpenH264HelperListener(LinphoneManager.getInstance().getOpenH264HelperListener());
 							mCodecDownloader.setUserData(0,LinphoneManager.getInstance().getContext());
@@ -750,7 +750,7 @@ public class SettingsFragment extends PreferencesListFragment {
 									}
 								}
 							}).show();
-						}
+						}*/
 						LinphoneManager.getLcIfManagerNotDestroyedOrNull().enablePayloadType(pt, enable);
 					} catch (LinphoneCoreException e) {
 						Log.e(e);
