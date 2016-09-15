@@ -168,7 +168,7 @@
 
 				</RelativeLayout>
 
-				<RelativeLayout
+				<!--<RelativeLayout
 					android:id="@+id/chat"
 					android:background="@drawable/footer_button"
 					android:layout_weight="1"
@@ -203,7 +203,7 @@
 						android:gravity="center"
 						android:visibility="gone"/>
 
-				</RelativeLayout>
+				</RelativeLayout>-->
 			</LinearLayout>
 
 			<LinearLayout

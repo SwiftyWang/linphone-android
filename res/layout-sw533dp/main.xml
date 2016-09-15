@@ -134,7 +134,7 @@
 						android:layout_margin="20dp"
 						android:layout_alignParentTop="true"
 						android:layout_alignParentRight="true"
-						android:visibility="visible"/>
+						android:visibility="gone"/>
 
 				</RelativeLayout>
 
@@ -186,7 +186,7 @@
 
 				</RelativeLayout>
 
-				<RelativeLayout
+				<!--<RelativeLayout
 					android:id="@+id/chat"
 					android:background="@drawable/footer_button"
 					android:layout_weight="1"
@@ -221,7 +221,7 @@
 						android:layout_alignParentRight="true"
 						android:visibility="gone"/>
 
-				</RelativeLayout>
+				</RelativeLayout>-->
 			</LinearLayout>
 		</RelativeLayout>
 

@@ -9,8 +9,32 @@
 		android:layout_height="match_parent"
 		android:gravity="center"
 		android:orientation="vertical"
-		android:background="@drawable/land_splashscreen">
+		android:background="#c22420"
+		android:weightSum="1">
+
+		<ImageView
+			android:layout_width="208dp"
+			android:layout_height="208dp"
+			android:id="@+id/imageView3"
+			android:layout_gravity="center_horizontal"
+			android:background="@drawable/logo_asipphone" />
 
 	</LinearLayout>
+
+	<ImageView
+		android:layout_width="262dp"
+		android:layout_height="120dp"
+		android:id="@+id/imageView2"
+		android:layout_gravity="left|top"
+		android:background="@drawable/amphitech" />
+
+	<TextView
+		android:layout_width="wrap_content"
+		android:layout_height="63dp"
+		android:text="AsipPhone"
+		android:id="@+id/textView"
+		android:layout_gravity="right|bottom"
+		android:textSize="@android:dimen/app_icon_size"
+		android:textColor="@color/colorB" />
 
 </FrameLayout>

@@ -241,7 +241,7 @@
 						android:padding="12dp"
 						android:contentDescription="@string/content_description_hang_up"/>
 
-					<RelativeLayout
+					<!--<RelativeLayout
 						android:background="@drawable/footer_button"
 						android:layout_width="match_parent"
 						android:layout_height="wrap_content"
@@ -266,7 +266,7 @@
 							android:layout_margin="15dp"
 							android:gravity="center"
 							android:visibility="gone"/>
-					</RelativeLayout>
+					</RelativeLayout>-->
 				</LinearLayout>
 
 

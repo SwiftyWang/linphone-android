@@ -190,7 +190,8 @@ public class SettingsFragment extends PreferencesListFragment {
 		}
 
 		if (getResources().getBoolean(R.bool.disable_chat)) {
-			findPreference(getString(R.string.pref_image_sharing_server_key)).setLayoutResource(R.layout.hidden);
+			//findPreference(getString(R.string.pref_image_sharing_server_key)).setLayoutResource(R.layout.hidden);
+			hidePreference(R.string.pref_image_sharing_server_key);
 		}
 
 		if (!getResources().getBoolean(R.bool.enable_push_id)) {

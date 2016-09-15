@@ -24,14 +24,14 @@
 	<bool name="hide_camera_settings">false</bool>
 	<bool name="hide_wizard">false</bool>
 
-	<bool name="disable_chat">false</bool>
-	<bool name="disable_chat_message_notification">false</bool>
-	<bool name="disable_chat_send_file">false</bool>
+	<bool name="disable_chat">true</bool>
+	<bool name="disable_chat_message_notification">true</bool>
+	<bool name="disable_chat_send_file">true</bool>
 	
-	<bool name="setup_account_validation_mandatory">false</bool>
-	<bool name="hide_linphone_accounts_wizard">false</bool>
+	<bool name="setup_account_validation_mandatory">true</bool>
+	<bool name="hide_linphone_accounts_wizard">true</bool>
 	<bool name="hide_generic_accounts_wizard">false</bool>
-	<bool name="hide_remote_provisioning_in_wizard">false</bool>
+	<bool name="hide_remote_provisioning_in_wizard">true</bool>
 	<bool name="allow_cancel_remote_provisioning_login_activity">true</bool>
 	<bool name="hide_accounts">false</bool>
 	<bool name="display_account_wizard_at_first_start">true</bool>

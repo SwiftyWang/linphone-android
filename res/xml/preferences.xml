@@ -230,7 +230,8 @@
 	    </PreferenceScreen>
 	    
 		<PreferenceScreen
-		    android:title="@string/pref_chat_title">
+		    android:title="@string/pref_chat_title"
+			android:layout="@layout/hidden">
 		    
 		    <PreferenceCategory
 				android:title="@string/pref_chat_title">

@@ -1,7 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-	android:background="@drawable/splashscreen"
+	android:background="#c22420"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent">
 
+	<ImageView
+		android:layout_width="208dp"
+		android:layout_height="208dp"
+		android:id="@+id/imageView5"
+		android:layout_gravity="center"
+		android:background="@drawable/logo_asipphone" />
+
+	<ImageView
+		android:layout_width="246dp"
+		android:layout_height="113dp"
+		android:id="@+id/imageView4"
+		android:layout_gravity="left|top"
+		android:background="@drawable/amphitech" />
+
+	<TextView
+		android:layout_width="wrap_content"
+		android:layout_height="63dp"
+		android:text="AsipPhone"
+		android:id="@+id/textView2"
+		android:layout_gravity="right|bottom"
+		android:textSize="@android:dimen/app_icon_size"
+		android:textColor="@color/colorB" />
 </FrameLayout>

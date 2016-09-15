@@ -46,8 +46,7 @@
 		android:padding="10dp"
 		android:layout_centerHorizontal="true"
 		android:layout_below="@+id/address_bar"
-		android:layout_above="@+id/controls"
-		android:background="@drawable/dialer_alt_back" />
+		android:layout_above="@+id/controls" />
     
     <LinearLayout
         android:id="@+id/controls"

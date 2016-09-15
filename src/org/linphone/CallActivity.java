@@ -164,7 +164,7 @@ public class CallActivity extends Activity implements OnClickListener, SensorEve
 		mListener = new LinphoneCoreListenerBase() {
 			@Override
 			public void messageReceived(LinphoneCore lc, LinphoneChatRoom cr, LinphoneChatMessage message) {
-		        displayMissedChats();
+		        //displayMissedChats();
 			}
 			
 			@Override
@@ -357,9 +357,9 @@ public class CallActivity extends Activity implements OnClickListener, SensorEve
 		numpad = (Numpad) findViewById(R.id.numpad);
 		numpad.getBackground().setAlpha(240);
 
-		chat = (ImageView) findViewById(R.id.chat);
+		/*chat = (ImageView) findViewById(R.id.chat);
 		chat.setOnClickListener(this);
-		missedChats = (TextView) findViewById(R.id.missed_chats);
+		missedChats = (TextView) findViewById(R.id.missed_chats);*/
 
 		//Others
 
@@ -666,9 +666,9 @@ public class CallActivity extends Activity implements OnClickListener, SensorEve
 		else if (id == R.id.dialer) {
 			hideOrDisplayNumpad();
 		}
-		else if (id == R.id.chat) {
+		/*else if (id == R.id.chat) {
 			goToChatList();
-		}
+		}*/
 		else if (id == R.id.conference) {
 			enterConference();
 			hideOrDisplayCallOptions();
@@ -1589,7 +1589,7 @@ public class CallActivity extends Activity implements OnClickListener, SensorEve
 	}
 	
 	private void displayMissedChats() {
-		int count = 0;
+		/*int count = 0;
 		LinphoneChatRoom[] chats = LinphoneManager.getLc().getChatRooms();
 		for (LinphoneChatRoom chatroom : chats) {
 			count += chatroom.getUnreadMessagesCount();
@@ -1601,6 +1601,6 @@ public class CallActivity extends Activity implements OnClickListener, SensorEve
 		} else {
 			missedChats.clearAnimation();
 			missedChats.setVisibility(View.GONE);
-		}
+		}*/
 	}
 }

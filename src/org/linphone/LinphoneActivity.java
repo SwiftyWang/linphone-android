@@ -294,16 +294,16 @@ public class LinphoneActivity extends Activity implements OnClickListener, Conta
 		contacts.setOnClickListener(this);
 		dialer = (RelativeLayout) findViewById(R.id.dialer);
 		dialer.setOnClickListener(this);
-		chat = (RelativeLayout) findViewById(R.id.chat);
-		chat.setOnClickListener(this);
+		/*chat = (RelativeLayout) findViewById(R.id.chat);
+		chat.setOnClickListener(this);*/
 
 		history_selected = findViewById(R.id.history_select);
 		contacts_selected = findViewById(R.id.contacts_select);
 		dialer_selected = findViewById(R.id.dialer_select);
-		chat_selected = findViewById(R.id.chat_select);
+		//chat_selected = findViewById(R.id.chat_select);
 
 		missedCalls = (TextView) findViewById(R.id.missed_calls);
-		missedChats = (TextView) findViewById(R.id.missed_chats);
+		//missedChats = (TextView) findViewById(R.id.missed_chats);
 	}
 
 	private boolean isTablet() {
@@ -387,12 +387,12 @@ public class LinphoneActivity extends Activity implements OnClickListener, Conta
 		case EMPTY:
 			fragment = new EmptyFragment();
 			break;
-		case CHAT_LIST:
+		/*case CHAT_LIST:
 			fragment = new ChatListFragment();
 			break;
 		case CHAT:
 			fragment = new ChatFragment();
-			break;
+			break;*/
 		default:
 			break;
 		}
@@ -408,9 +408,9 @@ public class LinphoneActivity extends Activity implements OnClickListener, Conta
 				case CONTACTS_LIST:
 					((ContactsListFragment) fragment).displayFirstContact();
 					break;
-				case CHAT_LIST:
+				/*case CHAT_LIST:
 					((ChatListFragment) fragment).displayFirstChat();
-					break;
+					break;*/
 				}
 			} else {
 				changeFragment(fragment, newFragmentType, withoutAnimation);
@@ -439,7 +439,7 @@ public class LinphoneActivity extends Activity implements OnClickListener, Conta
 
 		if (newFragmentType != FragmentsAvailable.DIALER
 				&& newFragmentType != FragmentsAvailable.CONTACTS_LIST
-				&& newFragmentType != FragmentsAvailable.CHAT_LIST
+				//&& newFragmentType != FragmentsAvailable.CHAT_LIST
 				&& newFragmentType != FragmentsAvailable.HISTORY_LIST) {
 			transaction.addToBackStack(newFragmentType.toString());
 		} else {
@@ -515,7 +515,7 @@ public class LinphoneActivity extends Activity implements OnClickListener, Conta
 			if (newFragmentType == FragmentsAvailable.DIALER
 					|| newFragmentType == FragmentsAvailable.SETTINGS
 					|| newFragmentType == FragmentsAvailable.CONTACTS_LIST
-					|| newFragmentType == FragmentsAvailable.CHAT_LIST
+					//|| newFragmentType == FragmentsAvailable.CHAT_LIST
 					|| newFragmentType == FragmentsAvailable.HISTORY_LIST) {
 				try {
 					getFragmentManager().popBackStackImmediate(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
@@ -594,14 +594,14 @@ public class LinphoneActivity extends Activity implements OnClickListener, Conta
 		} else {
 			Bundle extras = new Bundle();
 			extras.putSerializable("Contact", contact);
-			extras.putBoolean("ChatAddressOnly", chatOnly);
+			//extras.putBoolean("ChatAddressOnly", chatOnly);
 			changeCurrentFragment(FragmentsAvailable.CONTACT_DETAIL, extras);
 		}
 	}
 
 	public void displayContacts(boolean chatOnly) {
 		Bundle extras = new Bundle();
-		extras.putBoolean("ChatAddressOnly", chatOnly);
+		//extras.putBoolean("ChatAddressOnly", chatOnly);
 		changeCurrentFragment(FragmentsAvailable.CONTACTS_LIST, extras);
 	}
 
@@ -708,10 +708,10 @@ public class LinphoneActivity extends Activity implements OnClickListener, Conta
 		} else if (id == R.id.dialer) {
 			changeCurrentFragment(FragmentsAvailable.DIALER, null);
 			dialer_selected.setVisibility(View.VISIBLE);
-		} else if (id == R.id.chat) {
+		}/* else if (id == R.id.chat) {
 			changeCurrentFragment(FragmentsAvailable.CHAT_LIST, null);
 			chat_selected.setVisibility(View.VISIBLE);
-		} else if (id == R.id.cancel){
+		}*/ else if (id == R.id.cancel){
 			hideTopBar();
 			displayDialer();
 		}
@@ -721,7 +721,7 @@ public class LinphoneActivity extends Activity implements OnClickListener, Conta
 		history_selected.setVisibility(View.GONE);
 		contacts_selected.setVisibility(View.GONE);
 		dialer_selected.setVisibility(View.GONE);
-		chat_selected.setVisibility(View.GONE);
+		//chat_selected.setVisibility(View.GONE);
 	}
 
 	public void hideTabBar(Boolean hide) {
@@ -762,10 +762,10 @@ public class LinphoneActivity extends Activity implements OnClickListener, Conta
 		case ABOUT:
 			hideTabBar(true);
 			break;
-		case CHAT_LIST:
+		/*case CHAT_LIST:
 		case CHAT:
 			chat_selected.setVisibility(View.VISIBLE);
-			break;
+			break;*/
 		}
 	}
 
@@ -845,24 +845,24 @@ public class LinphoneActivity extends Activity implements OnClickListener, Conta
 	}
 
 	public void displayMissedCalls(final int missedCallsCount) {
-		if (missedCallsCount > 0) {
+		/*if (missedCallsCount > 0) {
 			missedCalls.setText(missedCallsCount + "");
 			missedCalls.setVisibility(View.VISIBLE);
 		} else {
 			LinphoneManager.getLc().resetMissedCallsCount();
 			missedCalls.clearAnimation();
 			missedCalls.setVisibility(View.GONE);
-		}
+		}*/
 	}
 
 	private void displayMissedChats(final int missedChatCount) {
-		if (missedChatCount > 0) {
+		/*if (missedChatCount > 0) {
 			missedChats.setText(missedChatCount + "");
 			missedChats.setVisibility(View.VISIBLE);
 		} else {
 			missedChats.clearAnimation();
 			missedChats.setVisibility(View.GONE);
-		}
+		}*/
 	}
 
 	public void displayCustomToast(final String message, final int duration) {
@@ -1324,7 +1324,7 @@ public class LinphoneActivity extends Activity implements OnClickListener, Conta
 
 		refreshAccounts();
 
-		updateMissedChatCount();
+		//updateMissedChatCount();
 		if(LinphonePreferences.instance().isFriendlistsubscriptionEnabled()){
 			LinphoneManager.getInstance().subscribeFriendList(true);
 		}
@@ -1424,7 +1424,7 @@ public class LinphoneActivity extends Activity implements OnClickListener, Conta
 			if (currentFragment == FragmentsAvailable.DIALER
 					|| currentFragment == FragmentsAvailable.CONTACTS_LIST
 					|| currentFragment == FragmentsAvailable.HISTORY_LIST
-					|| currentFragment == FragmentsAvailable.CHAT_LIST) {
+					/*|| currentFragment == FragmentsAvailable.CHAT_LIST*/) {
 				boolean isBackgroundModeActive = LinphonePreferences.instance().isBackgroundModeEnabled();
 				if (!isBackgroundModeActive) {
 					stopService(new Intent(Intent.ACTION_MAIN).setClass(this, LinphoneService.class));
