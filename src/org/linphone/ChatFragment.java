@@ -157,7 +157,7 @@ public class ChatFragment extends Fragment implements OnClickListener, LinphoneC
 		}
 
 		//Initialize UI
-		defaultBitmap = BitmapFactory.decodeResource(getActivity().getResources(), R.drawable.chat_picture_over);
+		//defaultBitmap = BitmapFactory.decodeResource(getActivity().getResources(), R.drawable.chat_picture_over);
 		
 		contactName = (TextView) view.findViewById(R.id.contact_name);
 		messagesList = (ListView) view.findViewById(R.id.chat_message_list);
@@ -1123,7 +1123,7 @@ public class ChatFragment extends Fragment implements OnClickListener, LinphoneC
 			
 			if (status == LinphoneChatMessage.State.NotDelivered) {
 				holder.messageStatus.setVisibility(View.VISIBLE);
-				holder.messageStatus.setImageResource(R.drawable.chat_message_not_delivered);
+				//holder.messageStatus.setImageResource(R.drawable.chat_message_not_delivered);
 			} else if (status == LinphoneChatMessage.State.InProgress) {
 				holder.messageSendingInProgress.setVisibility(View.VISIBLE);
 			}

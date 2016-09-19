@@ -405,7 +405,7 @@ public class ChatListFragment extends Fragment implements OnClickListener, OnIte
 			LinphoneChatMessage msg = history[0];
 
 			if(msg.getFileTransferInformation() != null || msg.getExternalBodyUrl() != null || msg.getAppData() != null ){
-				holder.lastMessageView.setBackgroundResource(R.drawable.chat_file_message);
+				//holder.lastMessageView.setBackgroundResource(R.drawable.chat_file_message);
 				time = msg.getTime();
 				holder.date.setText(LinphoneUtils.timestampToHumanDate(getActivity(),time,getString(R.string.messages_list_date_format)));
 				holder.lastMessageView.setText("");

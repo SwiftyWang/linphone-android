@@ -14,7 +14,6 @@
 
 		<ImageView
 			android:id="@+id/new_discussion"
-			android:src="@drawable/chat_add"
 			android:background="@drawable/toolbar_button"
 			android:contentDescription="@string/content_description_new_discussion"
 			android:layout_width="0dp"

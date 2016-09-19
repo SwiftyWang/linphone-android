@@ -997,7 +997,7 @@ public class CallActivity extends Activity implements OnClickListener, SensorEve
 					conference.setVisibility(View.INVISIBLE);
 					displayVideoCall(false);
 					numpad.setVisibility(View.GONE);
-					options.setImageResource(R.drawable.options_default);
+					//options.setImageResource(R.drawable.options_default);
 				}
 			}, SECONDS_BEFORE_HIDING_CONTROLS);
 		}
@@ -1048,7 +1048,7 @@ public class CallActivity extends Activity implements OnClickListener, SensorEve
 	private void hideOrDisplayCallOptions() {
 		//Hide options
 		if (addCall.getVisibility() == View.VISIBLE) {
-			options.setImageResource(R.drawable.options_default);
+			//options.setImageResource(R.drawable.options_default);
 			if (isTransferAllowed) {
 				transfer.setVisibility(View.INVISIBLE);
 			}
@@ -1060,7 +1060,7 @@ public class CallActivity extends Activity implements OnClickListener, SensorEve
 			}
 			addCall.setVisibility(View.VISIBLE);
 			conference.setVisibility(View.VISIBLE);
-			options.setImageResource(R.drawable.options_selected);
+			//options.setImageResource(R.drawable.options_selected);
 			transfer.setEnabled(LinphoneManager.getLc().getCurrentCall() != null);
 		}
 	}
