@@ -1173,10 +1173,8 @@ public class SettingsFragment extends PreferencesListFragment {
 		((CheckBoxPreference)findPreference(getString(R.string.pref_service_notification_key))).setChecked(mPrefs.getServiceNotificationVisibility());
 		((CheckBoxPreference)findPreference(getString(R.string.pref_autostart_key))).setChecked(mPrefs.isAutoStartEnabled());
 		setPreferenceDefaultValueAndSummary(R.string.pref_remote_provisioning_key, mPrefs.getRemoteProvisioningUrl());
-		setPreferenceDefaultValueAndSummary(R.string.pref_display_name_key, "Asip Phone Android");
-		mPrefs.setDefaultDisplayName("Asip Phone Android");
-		setPreferenceDefaultValueAndSummary(R.string.pref_user_name_key, "asipphone.android");
-		mPrefs.setDefaultUsername("asipphone.android");
+		setPreferenceDefaultValueAndSummary(R.string.pref_display_name_key, mPrefs.getDefaultDisplayName());
+		setPreferenceDefaultValueAndSummary(R.string.pref_user_name_key, mPrefs.getDefaultUsername());
 	}
 
 	private void setAdvancedPreferencesListener() {
