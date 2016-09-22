@@ -1163,6 +1163,16 @@ public class LinphoneManager implements LinphoneCoreListener, LinphoneChatMessag
 		}
 	}
 
+	@Override
+	public void authInfoRequested(LinphoneCore lc, String realm, String username, String domain) {
+
+	}
+
+	@Override
+	public void authenticationRequested(LinphoneCore lc, LinphoneAuthInfo authInfo, LinphoneCore.AuthMethod method) {
+
+	}
+
 	public void callStatsUpdated(final LinphoneCore lc, final LinphoneCall call, final LinphoneCallStats stats) {}
 
 	public void callEncryptionChanged(LinphoneCore lc, LinphoneCall call,

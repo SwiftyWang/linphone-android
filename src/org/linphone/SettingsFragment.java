@@ -889,16 +889,9 @@ public class SettingsFragment extends PreferencesListFragment {
 
 		deviceRingtone.setChecked(mPrefs.isDeviceRingtoneEnabled());
 		autoAnswer.setChecked(mPrefs.isAutoAnswerEnabled());
-		
-		if (mPrefs.useRfc2833Dtmfs()) {
-			rfc2833.setChecked(true);
-			sipInfo.setChecked(false);
-			sipInfo.setEnabled(false);
-		} else if (mPrefs.useSipInfoDtmfs()) {
-			sipInfo.setChecked(true);
-			rfc2833.setChecked(false);
-			rfc2833.setEnabled(false);
-		}
+
+		rfc2833.setChecked(true);
+		sipInfo.setChecked(true);
 
 		setPreferenceDefaultValueAndSummary(R.string.pref_voice_mail_key, mPrefs.getVoiceMailUri());
 	}
@@ -964,9 +957,6 @@ public class SettingsFragment extends PreferencesListFragment {
 			@Override
 			public boolean onPreferenceChange(Preference preference, Object newValue) {
 				boolean use = (Boolean) newValue;
-				CheckBoxPreference sipInfo = (CheckBoxPreference) findPreference(getString(R.string.pref_sipinfo_dtmf_key));
-				sipInfo.setEnabled(!use);
-				sipInfo.setChecked(false);
 				mPrefs.sendDtmfsAsRfc2833(use);
 				return true;
 			}
@@ -987,9 +977,6 @@ public class SettingsFragment extends PreferencesListFragment {
 			@Override
 			public boolean onPreferenceChange(Preference preference, Object newValue) {
 				boolean use = (Boolean) newValue;
-				CheckBoxPreference rfc2833 = (CheckBoxPreference) findPreference(getString(R.string.pref_rfc2833_dtmf_key));
-				rfc2833.setEnabled(!use);
-				rfc2833.setChecked(false);
 				mPrefs.sendDTMFsAsSipInfo(use);
 				return true;
 			}
@@ -1186,8 +1173,10 @@ public class SettingsFragment extends PreferencesListFragment {
 		((CheckBoxPreference)findPreference(getString(R.string.pref_service_notification_key))).setChecked(mPrefs.getServiceNotificationVisibility());
 		((CheckBoxPreference)findPreference(getString(R.string.pref_autostart_key))).setChecked(mPrefs.isAutoStartEnabled());
 		setPreferenceDefaultValueAndSummary(R.string.pref_remote_provisioning_key, mPrefs.getRemoteProvisioningUrl());
-		setPreferenceDefaultValueAndSummary(R.string.pref_display_name_key, mPrefs.getDefaultDisplayName());
-		setPreferenceDefaultValueAndSummary(R.string.pref_user_name_key, mPrefs.getDefaultUsername());
+		setPreferenceDefaultValueAndSummary(R.string.pref_display_name_key, "Asip Phone Android");
+		mPrefs.setDefaultDisplayName("Asip Phone Android");
+		setPreferenceDefaultValueAndSummary(R.string.pref_user_name_key, "asipphone.android");
+		mPrefs.setDefaultUsername("asipphone.android");
 	}
 
 	private void setAdvancedPreferencesListener() {
