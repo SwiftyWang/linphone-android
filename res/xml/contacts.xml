@@ -5,7 +5,7 @@
 
     <!-- Change package, leave vnd.android.cursor.item/ before and .profile at the end. -->
     <ContactsDataKind
-        android:mimeType="vnd.android.cursor.item/fr.asipphone.profile"
+        android:mimeType="vnd.android.cursor.item/fr.amphitech.phone.profile"
         android:icon="@drawable/linphone_logo"
         android:summaryColumn="data2"
         android:detailColumn="data3"
