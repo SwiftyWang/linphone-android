@@ -61,6 +61,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
+            android:layout_gravity="center" />
+
+        <TextView
+            android:text="@string/about_info"
+            style="@style/font16"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
             android:layout_gravity="center"
             android:textColor="@color/colorA" />
 
@@ -69,15 +77,6 @@
             android:text="@string/about_version"
             style="@style/font12"
             android:paddingTop="20dp"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-
-        <TextView
-            android:id="@+id/about_liblinphone_version"
-            android:text="@string/about_liblinphone_version"
-            style="@style/font12"
             android:layout_gravity="center"
             android:gravity="center"
             android:layout_width="wrap_content"
