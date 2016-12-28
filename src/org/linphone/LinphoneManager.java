@@ -18,67 +18,6 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 */
 package org.linphone;
 
-import static android.media.AudioManager.MODE_RINGTONE;
-import static android.media.AudioManager.STREAM_RING;
-import static android.media.AudioManager.STREAM_VOICE_CALL;
-
-import java.io.ByteArrayInputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.nio.ByteBuffer;
-import java.sql.Timestamp;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.List;
-import java.util.Timer;
-import java.util.TimerTask;
-
-import org.linphone.assistant.AssistantActivity;
-import org.linphone.core.CallDirection;
-import org.linphone.core.LinphoneAccountCreator;
-import org.linphone.core.LinphoneAddress;
-import org.linphone.core.LinphoneBuffer;
-import org.linphone.core.LinphoneCall;
-import org.linphone.core.LinphoneCall.State;
-import org.linphone.core.LinphoneCallParams;
-import org.linphone.core.LinphoneCallStats;
-import org.linphone.core.LinphoneChatMessage;
-import org.linphone.core.LinphoneChatRoom;
-import org.linphone.core.LinphoneContent;
-import org.linphone.core.LinphoneCore;
-import org.linphone.core.LinphoneCore.AuthMethod;
-import org.linphone.core.LinphoneCore.EcCalibratorStatus;
-import org.linphone.core.LinphoneCore.GlobalState;
-import org.linphone.core.LinphoneCore.LogCollectionUploadState;
-import org.linphone.core.LinphoneCore.RegistrationState;
-import org.linphone.core.LinphoneCore.RemoteProvisioningState;
-import org.linphone.core.LinphoneAuthInfo;
-import org.linphone.core.LinphoneCoreException;
-import org.linphone.core.LinphoneCoreFactory;
-import org.linphone.core.LinphoneCoreListener;
-import org.linphone.core.LinphoneEvent;
-import org.linphone.core.LinphoneFriend;
-import org.linphone.core.LinphoneFriendList;
-import org.linphone.core.LinphoneInfoMessage;
-import org.linphone.core.LinphoneProxyConfig;
-import org.linphone.core.OpenH264DownloadHelperListener;
-import org.linphone.core.PayloadType;
-import org.linphone.core.PresenceActivityType;
-import org.linphone.core.PresenceModel;
-import org.linphone.core.PublishState;
-import org.linphone.core.SubscriptionState;
-import org.linphone.core.TunnelConfig;
-import org.linphone.mediastream.Log;
-import org.linphone.mediastream.Version;
-import org.linphone.mediastream.video.capture.hwconf.AndroidCameraConfiguration;
-import org.linphone.mediastream.video.capture.hwconf.AndroidCameraConfiguration.AndroidCamera;
-import org.linphone.mediastream.video.capture.hwconf.Hacks;
-import org.linphone.tools.OpenH264DownloadHelper;
-
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.app.AlertDialog;
@@ -108,6 +47,67 @@ import android.telephony.TelephonyManager;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
+
+import org.linphone.assistant.AssistantActivity;
+import org.linphone.core.CallDirection;
+import org.linphone.core.LinphoneAccountCreator;
+import org.linphone.core.LinphoneAddress;
+import org.linphone.core.LinphoneAuthInfo;
+import org.linphone.core.LinphoneBuffer;
+import org.linphone.core.LinphoneCall;
+import org.linphone.core.LinphoneCall.State;
+import org.linphone.core.LinphoneCallParams;
+import org.linphone.core.LinphoneCallStats;
+import org.linphone.core.LinphoneChatMessage;
+import org.linphone.core.LinphoneChatRoom;
+import org.linphone.core.LinphoneContent;
+import org.linphone.core.LinphoneCore;
+import org.linphone.core.LinphoneCore.AuthMethod;
+import org.linphone.core.LinphoneCore.EcCalibratorStatus;
+import org.linphone.core.LinphoneCore.GlobalState;
+import org.linphone.core.LinphoneCore.LogCollectionUploadState;
+import org.linphone.core.LinphoneCore.RegistrationState;
+import org.linphone.core.LinphoneCore.RemoteProvisioningState;
+import org.linphone.core.LinphoneCoreException;
+import org.linphone.core.LinphoneCoreFactory;
+import org.linphone.core.LinphoneCoreListener;
+import org.linphone.core.LinphoneEvent;
+import org.linphone.core.LinphoneFriend;
+import org.linphone.core.LinphoneFriendList;
+import org.linphone.core.LinphoneInfoMessage;
+import org.linphone.core.LinphoneProxyConfig;
+import org.linphone.core.OpenH264DownloadHelperListener;
+import org.linphone.core.PayloadType;
+import org.linphone.core.PresenceActivityType;
+import org.linphone.core.PresenceModel;
+import org.linphone.core.PublishState;
+import org.linphone.core.SubscriptionState;
+import org.linphone.core.TunnelConfig;
+import org.linphone.mediastream.Log;
+import org.linphone.mediastream.Version;
+import org.linphone.mediastream.video.capture.hwconf.AndroidCameraConfiguration;
+import org.linphone.mediastream.video.capture.hwconf.AndroidCameraConfiguration.AndroidCamera;
+import org.linphone.mediastream.video.capture.hwconf.Hacks;
+import org.linphone.tools.H264Helper;
+import org.linphone.tools.OpenH264DownloadHelper;
+
+import java.io.ByteArrayInputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.nio.ByteBuffer;
+import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
+
+import static android.media.AudioManager.MODE_RINGTONE;
+import static android.media.AudioManager.STREAM_RING;
+import static android.media.AudioManager.STREAM_VOICE_CALL;
 
 /**
  *
@@ -243,14 +243,14 @@ public class LinphoneManager implements LinphoneCoreListener, LinphoneChatMessag
 							progress.setCancelable(false);
 							progress.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
 						} else if (current <= max) {
-							progress.setMessage("Downloading OpenH264");
+							progress.setMessage(getString(R.string.assistant_openh264_downloading));
 							progress.setMax(max);
 							progress.setProgress(current);
 							progress.show();
 						} else {
 							progress.dismiss();
 							progress = null;
-							LinphoneManager.getLc().reloadMsPlugins(null);
+							LinphoneManager.getLc().reloadMsPlugins(LinphoneManager.this.getContext().getApplicationInfo().nativeLibraryDir);
 							if (ohcodec.getUserDataSize() > box && ohcodec.getUserData(box) != null) {
 								((CheckBoxPreference) ohcodec.getUserData(box)).setSummary(mCodecDownloader.getLicenseMessage());
 								((CheckBoxPreference) ohcodec.getUserData(box)).setTitle("OpenH264");
@@ -267,9 +267,9 @@ public class LinphoneManager implements LinphoneCoreListener, LinphoneChatMessag
 						public void run() {
 						if (progress != null) progress.dismiss();
 						AlertDialog.Builder builder = new AlertDialog.Builder((Context) LinphoneManager.getInstance().getOpenH264DownloadHelper().getUserData(ctxt));
-						builder.setMessage("Sorry an error has occurred.");
+						builder.setMessage(getString(R.string.assistant_openh264_error));
 						builder.setCancelable(false);
-						builder.setNeutralButton("Ok", null);
+						builder.setNeutralButton(getString(R.string.ok), null);
 						builder.show();
 					}
 					});
@@ -316,6 +316,10 @@ public class LinphoneManager implements LinphoneCoreListener, LinphoneChatMessag
 		instance = new LinphoneManager(c);
 		instance.startLibLinphone(c);
 
+		if (getLc().openH264Enabled()) {
+			// H264 codec Management - set to auto mode -> MediaCodec >= android 5.0 >= OpenH264
+			H264Helper.setH264Mode(H264Helper.MODE_AUTO, getLc());
+		}
 		TelephonyManager tm = (TelephonyManager) c.getSystemService(Context.TELEPHONY_SERVICE);
 		boolean gsmIdle = tm.getCallState() == TelephonyManager.CALL_STATE_IDLE;
 		setGsmIdle(gsmIdle);
@@ -936,6 +940,7 @@ public class LinphoneManager implements LinphoneCoreListener, LinphoneChatMessag
 		}
 		finally {
 			mServiceContext.unregisterReceiver(mKeepAliveReceiver);
+			mServiceContext.unregisterReceiver(mDozeReceiver);
 			mLc = null;
 			instance = null;
 		}
@@ -1021,6 +1026,7 @@ public class LinphoneManager implements LinphoneCoreListener, LinphoneChatMessag
 		Log.i("New global state [",state,"]");
 		if (state == GlobalState.GlobalOn){
 			try {
+				Log.e("LinphoneManager"," globalState ON");
 				initLiblinphone(lc);
 				initOpenH264Helper();
 

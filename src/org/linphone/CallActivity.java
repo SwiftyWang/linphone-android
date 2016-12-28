@@ -79,7 +79,7 @@ import android.widget.Toast;
 /**
  * @author Sylvain Berfini
  */
-public class CallActivity extends Activity implements OnClickListener, SensorEventListener, ActivityCompat.OnRequestPermissionsResultCallback {
+public class CallActivity extends LinphoneGenericActivity implements OnClickListener, SensorEventListener, ActivityCompat.OnRequestPermissionsResultCallback {
 	private final static int SECONDS_BEFORE_HIDING_CONTROLS = 4000;
 	private final static int SECONDS_BEFORE_DENYING_CALL_UPDATE = 30000;
 	private static final int PERMISSIONS_REQUEST_CAMERA = 202;
@@ -803,10 +803,14 @@ public class CallActivity extends Activity implements OnClickListener, SensorEve
 				mSensorManager.registerListener(this, mProximity, SensorManager.SENSOR_DELAY_NORMAL);
 				mProximitySensingEnabled = true;
 			}
-		}else{
+		} else {
 			if (mProximitySensingEnabled){
 				mSensorManager.unregisterListener(this);
 				mProximitySensingEnabled = false;
+				// Don't forgeting to release wakelock if held
+				if(wakeLock.isHeld()) {
+					wakeLock.release();
+				}
 			}
 		}
 	}
@@ -828,6 +832,7 @@ public class CallActivity extends Activity implements OnClickListener, SensorEve
 		refreshInCallActions();
 
 		enableProximitySensing(false);
+
 		replaceFragmentAudioByVideo();
 		hideStatusBar();
 	}
